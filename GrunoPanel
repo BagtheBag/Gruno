@@ -1,0 +1,163 @@
+package GrunoPackage;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import java.io.*;
+import javax.imageio.*;
+import java.awt.image.BufferedImage;
+import java.net.URL;
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+
+public class GrunoPanel extends JPanel{
+  
+  private JPanel choicePanel;
+  
+  //private ArrayList<JRadioButton> choiceArray;
+  private JRadioButton choice1;
+  private JRadioButton choice2;
+  private JRadioButton choice3;
+  private JRadioButton choice4;
+  private JRadioButton choice5;
+  
+  private JButton enterChoice;
+  
+  Image oneImages [];
+  
+  
+  public GrunoPanel(){
+    choicePanel = new JPanel();
+    
+    /**try {
+      GrunoCardImages gci = new GrunoCardImages();
+      ArrayList<BufferedImage> imageArray = gci.getImageList();
+      for (int i = 0; i <= imageArray.size(); i++){
+        JLabel imageLabel = new JLabel(new ImageIcon(imageArray.get(i)));
+        add(imageLabel);
+      }
+    } catch(IOException ie){
+      System.out.println("help");
+    }
+    JLabel picLabel = new JLabel(new ImageIcon(uno1));
+    add(picLabel);
+    */
+    
+    //One one = new One(true);
+    //oneImages = one.getImages();
+    //int i = 0;
+    //JLabel oneBlue = new JLabel(oneImages[3]);
+    //add(oneBlue);
+    
+    One o = new One(true);
+    loadImages(o.getImage(0));
+    loadImages(o.getImage(1));
+    loadImages(o.getImage(2));
+    loadImages(o.getImage(3));
+    //loadImages("https://image.ibb.co/kZLnpn/blue_zero.png");
+    //loadImages("https://image.ibb.co/fYhYUn/blue_one.png");
+    //loadImages("https://image.ibb.co/fYhYUn/blue_zero.png");
+    //loadImages("https://image.ibb.co/fYhYUn/blue_zero.png");
+    //loadImages("https://image.ibb.co/fYhYUn/blue_zero.png");
+    //loadImages("https://image.ibb.co/fYhYUn/blue_zero.png");
+    //loadImages("https://image.ibb.co/fYhYUn/blue_zero.png");
+    
+    
+    choice1 = new JRadioButton("Super Ultra Extreem Extreem Uno");
+    choice2 = new JRadioButton("Extreem Uno");
+    choice3 = new JRadioButton("Uno Slam");
+    choice4 = new JRadioButton("CNUNO");
+    choice5 = new JRadioButton("Uno Solitare");
+    
+    ButtonGroup choice = new ButtonGroup();
+    choice.add(choice1);
+    choice.add(choice2);
+    choice.add(choice3);
+    choice.add(choice4);
+    choice.add(choice5);
+    
+    choicePanel.setPreferredSize(new Dimension(800, 800));
+    
+    choicePanel.add(choice1);
+    choicePanel.add(choice2);
+    choicePanel.add(choice3);
+    choicePanel.add(choice4);
+    choicePanel.add(choice5);
+    
+    //choice1.setSelected(true);
+    
+    RadioButtonListener il = new RadioButtonListener();
+    choice1.addItemListener(il);
+    choice2.addItemListener(il);
+    choice3.addItemListener(il);
+    choice4.addItemListener(il);
+    choice5.addItemListener(il);
+    
+    add(choicePanel);
+  }//end constructor
+  
+    
+  /** main for GrunoPanel*/
+  public static void main(String [] args){
+    GrunoPanel j = new GrunoPanel();
+    JFrame f = new JFrame("GRUNO");
+    f.setContentPane(new GrunoPanel());
+    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    f.pack();
+    f.setVisible(true);
+  }//end outer main 
+  
+  public void loadImages(String s){
+    try{
+      URL imageURL = new URL(s);
+      Image image = ImageIO.read(imageURL);
+      JLabel imageLabel = new JLabel(new ImageIcon(image));
+      add(imageLabel);
+    }catch(MalformedURLException ex){
+      System.out.println("Malformed URL");
+    }catch(IOException iox){
+      System.out.println("cannot load file");
+    }
+  }
+  
+  
+  
+  private class DrawingPanel extends JPanel{
+    
+    /** constructor for DrawingPanel. Takes no agruments*/
+    public DrawingPanel(){
+      setPreferredSize(new Dimension(800, 800));
+      setBackground(new Color(64, 152, 37));
+    }//end constructor DrawingPanel
+    
+    /** paintComponent paints the ovals in each index of shape for the current count*/
+    public void paintComponent(Graphics g){
+      super.paintComponent(g);
+      g.drawImage(oneImages[0], 0, 0, this);
+    }//end paintComponent
+    
+  }//end class DrawingPanel extends JPanel
+  
+  
+  private class RadioButtonListener implements ItemListener{
+    
+    public void itemStateChanged(ItemEvent e){
+      enterChoice = new JButton("Enter");
+      choicePanel.add(enterChoice);
+      JRadioButton selectedChoice = (JRadioButton) e.getSource();
+      if (e.getStateChange() == ItemEvent.SELECTED){
+        if ("Super Ultra Extreem Extreem Uno".equals(selectedChoice.getText())){
+          System.out.println("please");
+        }
+      }else if (e.getStateChange() == ItemEvent.DESELECTED){
+        
+      }
+    }
+  }
+  
+  
+  
+  
+}//end class
