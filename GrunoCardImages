@@ -1,0 +1,92 @@
+package GrunoPackage;
+
+import java.util.*;
+import java.io.*;
+import javax.imageio.*;
+import java.awt.image.BufferedImage;
+
+public class GrunoCardImages{
+  
+  private ArrayList<BufferedImage> imageList;
+  
+  public GrunoCardImages(){
+    try {
+      File blueZero = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue zero.png");
+      BufferedImage blueZeroB = ImageIO.read(blueZero);
+      imageList.add(blueZeroB);
+      
+      File yellowZero = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/yellow zero.png");
+      BufferedImage yellowZeroB = ImageIO.read(yellowZero);
+      imageList.add(yellowZeroB);
+      
+      File redZero = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/red zero.png");
+      BufferedImage redZeroB = ImageIO.read(redZero);
+      imageList.add(redZeroB);
+      
+      File greenZero = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue zero.png");
+      BufferedImage greenZeroB = ImageIO.read(greenZero);
+      imageList.add(greenZeroB);
+      
+      File blueOne = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue one.png");
+      BufferedImage blueOneB = ImageIO.read(blueOne);
+      imageList.add(blueOneB);
+      
+      File blueTwo = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue two.png");
+      BufferedImage blueTwoB = ImageIO.read(blueTwo);
+      imageList.add(blueTwoB);
+      
+      File blueThree = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue three.png");
+      BufferedImage blueThreeB = ImageIO.read(blueThree);
+      imageList.add(blueThreeB);
+      
+      File blueFour = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue four.png");
+      BufferedImage blueFourB = ImageIO.read(blueFour);
+      imageList.add(blueFourB);
+      
+      File blueFive = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue five.png");
+      BufferedImage blueFiveB = ImageIO.read(blueFive);
+      imageList.add(blueFiveB);
+      
+      File blueSix = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue six.png");
+      BufferedImage blueSixB = ImageIO.read(blueSix);
+      imageList.add(blueSixB);
+      
+      File blueSeven = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue seven.png");
+      BufferedImage blueSevenB = ImageIO.read(blueSeven);
+      imageList.add(blueSevenB);
+      
+      File blueEight = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue eight.png");
+      BufferedImage blueEightB = ImageIO.read(blueEight);
+      imageList.add(blueEightB);
+      
+      File blueNine = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue nine.png");
+      BufferedImage blueNineB = ImageIO.read(blueNine);
+      imageList.add(blueNineB);
+      
+      File blueReverse = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue reverse.png");
+      BufferedImage blueReverseB = ImageIO.read(blueReverse);
+      imageList.add(blueReverseB);
+      
+      File blueSkip = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue skip.png");
+      BufferedImage blueSkipB = ImageIO.read(blueSkip);
+      imageList.add(blueSkipB);
+      
+      File bluePlusTwo = new File("C:/Users/grace/Desktop/uni 2017/Java general/GrunoPackage/unoImages/blue plus two.png");
+      BufferedImage bluePlusTwoB = ImageIO.read(bluePlusTwo);
+      imageList.add(bluePlusTwoB);
+      
+      
+      
+      
+    } catch(IOException ie){
+      System.out.println("help");
+    }
+  }
+  
+  
+  public ArrayList<BufferedImage> getImageList(){
+    return imageList;
+  }
+  
+  
+}
