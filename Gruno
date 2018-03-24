@@ -1,0 +1,101 @@
+package GrunoPackage;
+
+import java.util.*;
+
+public class Gruno{
+  
+  /** all variations of uno. changes the rules of the cards */
+  //private boolean superUltraExtreemExtreemUno = false;
+  //private boolean extreemUno = false;
+  //private boolean unoSlam = false;
+  //private boolean cnuno = false;
+  //private boolean unoSolitare = false;
+  
+  /** extra rules that can be added to any games*/
+  //private boolean speedRule = false;
+  //private boolean threeRule = false;
+  
+  public static ArrayList<GrunoCard> unshuffledDeck = new ArrayList<GrunoCard>();
+  public static ArrayList<GrunoCard> shuffledDeck = new ArrayList<GrunoCard>();
+  
+  private static GrunoPlayer playerOne;
+  //private static GrunoPlayer playerTwo;
+  //private static GrunoPlayer playerThree;
+  //private static GrunoPlayer playerFour;
+  //private static GrunoPlayer playerFive;
+  //private static GrunoPlayer playerSix;
+  //private static GrunoPlayer playerSeven;
+  //private static GrunoPlayer playerEight;
+  //private static GrunoPlayer playerNine;
+  //private static GrunoPlayer playerTen;
+  
+  
+  public static void main(String[] args){
+    makeDeck(unshuffledDeck);
+    makeDeck(shuffledDeck);
+    shuffleDeck(shuffledDeck);
+    playerOne = new GrunoPlayer(7);
+    
+    System.out.println("Player One Hand:");
+    for (int i = 0; i < playerOne.hand().size(); i++){
+      System.out.println(i + " " + playerOne.hand().get(i));
+    }
+    
+    System.out.println("Remaining Draw Deck");
+    for (int i = 0; i < shuffledDeck.size(); i++){
+      System.out.println(i + " " + shuffledDeck.get(i));
+    }
+    
+    //GrunoCardImages gci = new GrunoCardImages();
+  }//end main
+  
+  
+  
+  public static GrunoCard [] makeDeck(){
+    GrunoCard [] deck = new GrunoCard[108];
+    int index = 0;
+    for (int colourShade = 0; colourShade < 4; colourShade++){
+      deck[index++] = new GrunoCard(0, colourShade);
+    }
+    for (int cardID = 1; cardID < 13; cardID++){
+      for (int colourShade = 0; colourShade < 4; colourShade++){
+        deck[index++] = new GrunoCard(cardID, colourShade);
+        deck[index++] = new GrunoCard(cardID, colourShade);
+      }
+    }
+    for (int cardID = 13; cardID < 15; cardID++){
+      for(int j = 0; j < 4; j++){
+        deck[index++] = new GrunoCard(cardID, 4);
+      }
+    }
+    return deck;
+  }//end makeDeck
+  
+  
+  
+  public static void makeDeck(ArrayList<GrunoCard> deck){
+    //int index = 0;
+    for (int colourShade = 0; colourShade < 4; colourShade++){
+      deck.add(new GrunoCard(0, colourShade));
+    }
+    for (int cardID = 1; cardID < 13; cardID++){
+      for (int colourShade = 0; colourShade < 4; colourShade++){
+        deck.add(new GrunoCard(cardID, colourShade));
+        deck.add(new GrunoCard(cardID, colourShade));
+      }
+    }
+    for (int cardID = 13; cardID < 15; cardID++){
+      for(int j = 0; j < 4; j++){
+        deck.add(new GrunoCard(cardID, 4));
+      }
+    }
+  }//end makeArrayDeck
+  
+  
+  
+  public static void shuffleDeck(ArrayList<GrunoCard> deck){
+    Collections.shuffle(deck);
+  }//end shuffleDeck
+    
+  
+}//end Gruno
